@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="author-detail">
     <p>{{ getAuthorDetail }}</p>
     <p>{{ getAuthorPosts(route.params.id).length }} posts written</p>
     <ul>
@@ -43,3 +43,15 @@ export default {
   }
 }
 </script>
+<style scoped>
+.author-detail p {
+  margin: 1rem;
+}
+ul {
+  list-style-type: disc;
+  margin: 2rem;
+}
+ul li {
+  margin: 1.5rem 0;
+}
+</style>
