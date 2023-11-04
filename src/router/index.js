@@ -4,18 +4,24 @@ import PostList from '../components/Posts/PostList.vue'
 import Authors from '../components/Authors/AuthorsList.vue'
 import PostDetail from '../components/Posts/PostDetail.vue'
 import AuthorDetail from '../components/Authors/AuthorDetail.vue'
+import NotFound from '../components/NotFound/NotFound.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
+  linkActiveClass: 'active',
   routes: [
     {
       path: '/',
-      name: 'postList',
+      redirect: '/posts'
+    },
+    {
+      path: '/posts',
+      name: 'post-list',
       component: PostList
     },
     {
       path: '/post/:id',
-      name: 'postDetail',
+      name: 'post-detail',
       component: PostDetail
     },
     {
@@ -25,8 +31,12 @@ const router = createRouter({
     },
     {
       path: '/author/:id',
-      name: 'authorDetail',
+      name: 'author-detail',
       component: AuthorDetail
+    },
+    {
+      path: '/:notFound(.*)',
+      component: NotFound
     }
   ]
 })
