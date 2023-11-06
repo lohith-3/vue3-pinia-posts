@@ -22,7 +22,7 @@ export default {
     const authorStore = useAuthorStore()
     const { authors, getAuthorPosts } = storeToRefs(authorStore)
 
-    if (!authors.length) {
+    if (!authors.value.length) {
       authorStore.fetchAuthors()
     }
 
