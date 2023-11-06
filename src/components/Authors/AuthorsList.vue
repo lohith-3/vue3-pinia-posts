@@ -17,9 +17,11 @@ export default {
   setup() {
     const message = ref('authors list component')
     const authorStore = useAuthorStore()
-    const { getAuthors } = storeToRefs(authorStore)
+    const { getAuthors, authors } = storeToRefs(authorStore)
 
-    authorStore.fetchAuthors()
+    if (!authors.value.length) {
+      authorStore.fetchAuthors()
+    }
     return {
       message,
       getAuthors

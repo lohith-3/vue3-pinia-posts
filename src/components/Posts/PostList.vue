@@ -19,7 +19,9 @@ export default {
     const { name, posts } = storeToRefs(postStore)
 
     // fetching the posts
-    postStore.getposts()
+    if (!posts.value.length) {
+      postStore.fetchPosts()
+    }
 
     return {
       name,
